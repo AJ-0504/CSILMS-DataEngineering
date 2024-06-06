@@ -1,0 +1,114 @@
+# QUESTION 1
+if __name__ == '__main__':
+    a = int(input())
+    b = int(input())
+    print(a+b)
+    print(a-b)
+    print(a*b)
+
+# QUESTION 2
+from itertools import groupby
+s=input()
+l=[]
+l2=[]
+for k,g in groupby(s):
+    l.append(list(g))
+    l2.append(k)
+for i in range(len(l2)):
+    print("("+str(len(l[i]))+", "+str(l2[i])+")",end=" ")
+
+# QUESTION 3
+def minion_game(string):
+    length = len(string)
+    vowels = "AEIOU"
+    total_substrings = (length * (length + 1)) // 2
+    kevin = sum(length - i for i in range(length) if string[i] in vowels)
+    stuart = total_substrings - kevin
+    if stuart == kevin:
+        print("Draw")
+    elif stuart > kevin:
+        print("Stuart", stuart)
+    else:
+        print("Kevin", kevin)
+if __name__ == '__main__':
+    s = input()
+    minion_game(s)
+
+# QUESTION 4
+def is_leap(year):
+    if year % 4 == 0:
+        if year % 100 == 0:
+            if year % 400 == 0:
+                return True
+            else:
+                return False
+        else:
+            return True
+    else:
+        return False
+
+year = int(input())
+print(is_leap(year))
+
+# QUESTION 5
+import itertools
+
+n = int(input())
+letters = input().split()
+k = int(input())
+
+nb, tot = 0, 0
+for t in itertools.combinations([i for i in range(n)], k):
+    tot += 1
+    for i in t:
+        if letters[i] == 'a':
+            nb += 1
+            break
+print(round(nb / tot, 3))
+
+# QUESTION 6
+if __name__ == '__main__':
+    n = int(input())
+    integer_list = map(int, input().split())
+
+    t = tuple(integer_list)
+
+    print(hash(t));
+
+# QUESTION 7
+if __name__ == '__main__':
+
+    n = int(input())
+
+    student_marks = {}
+
+    for _ in range(n):
+
+        name, *line = input().split()
+
+        scores = list(map(float, line))
+
+        student_marks[name] = scores
+
+    query_name = input()
+
+    l1 = list(student_marks[query_name]) 
+
+    addition = sum(l1)
+
+    result = addition/len(l1)
+
+    print('%.2f'% result)
+
+# QUESTION 8
+def print_formatted(number):
+    width = len(bin(number)[2:])
+    for i in range(1, number+1):
+        deci = str(i)
+        octa = oct(i)[2:]
+        hexa = hex(i)[2:].upper()
+        bina = bin(i)[2:]
+        print(deci.rjust(width),octa.rjust(width),hexa.rjust(width),bina.rjust(width))
+if __name__ == '__main__':
+    n = int(input())
+    print_formatted(n)
