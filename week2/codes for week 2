@@ -1,0 +1,98 @@
+# Question 1
+def solve(s):
+    ans = s.split(' ')
+    ans1 = (((i.capitalize() for i in ans)))
+    return ' '.join(ans1)
+
+#Question 2
+  def average(array):
+    # your code goes here
+    my_set = set(array)
+    avg = sum(my_set)/len(my_set)
+    
+    return (avg)
+if __name__ == '__main__':
+    n = int(input())
+    arr = list(map(int, input().split()))
+    result = average(arr)
+    print(result)
+
+#Question 3
+import textwrap
+
+def wrap(string, max_width):
+    return textwrap.fill(string, max_width)
+
+if __name__ == '__main__':
+    string, max_width = input(), int(input())
+    result = wrap(string, max_width)
+    print(result)
+
+#Question 4
+def print_rangoli(size):
+    # your code goes here
+     alpha = "abcdefghijklmnopqrstuvwxyz"
+     data = [alpha[i] for i in range(size)]
+     items = list(range(size))
+     items = items[:-1]+items[::-1]
+     for i in items:
+         temp = data[-(i+1):]
+         row = temp[::-1]+temp[1:]
+         print("-".join(row).center(n*4-3, "-"))
+
+if __name__ == '__main__':
+    n = int(input())
+    print_rangoli(n)
+
+#Qeustion 6
+from collections import Counter
+x = int(input())
+y = Counter(map(int, input().split()))
+z = int(input())
+
+total = 0
+for i in range(z):
+    size, rate = map(int, input().split())
+    if y[size]: 
+        y[size] -= 1
+        total += rate
+print(total)
+
+# Qestion 7
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+for i in range(int(input())):
+    try:
+        a, b = map(int, input().split())
+        print(int(a//b))
+    except Exception as e:
+        print("Error Code:",e)
+
+# Question 8
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import re
+T = int(input())
+for i in range(0, T):
+    regex_raw = input()
+    try:
+        regex = re.compile(regex_raw)
+    except re.error:
+        print(False)
+    else:
+        print(True)
+
+# Question 9
+input()
+s  = list(map(int, input().split()))
+s.reverse()
+s = set(s)
+num_commands = int(input())
+command = ["", ""]
+for i in range(num_commands):
+    command = input().split()
+    if len(command) == 1:
+        getattr(s, command[0])()
+    elif len(command) == 2:
+        command[1] = int(command[1])
+        if command[1] in s:
+            getattr(s, command[0])(command[1])
+print(sum(s))
