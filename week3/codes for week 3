@@ -1,0 +1,43 @@
+# Question 1
+SELECT * FROM City;
+
+# Question 2
+select * 
+from city
+where id=1661;
+
+# Question 3
+SELECT name
+FROM employee
+ORDER BY name;
+
+# Question 4
+SELECT *
+FROM city
+WHERE countrycode='JPN';
+
+# Question 5
+SELECT city,state
+FROM station;
+
+# Question 6
+SELECT DISTINCT city
+FROM station
+WHERE MOD(id,2)=0;
+
+# Question 7
+SELECT COUNT(CITY)-COUNT(DISTINCT CITY)
+FROM STATION;
+
+# Question 8
+SELECT CITY,LENGTH(CITY) FROM STATION ORDER BY LENGTH(CITY) DESC,CITY ASC LIMIT 1;
+SELECT CITY, LENGTH(CITY) FROM STATION ORDER BY LENGTH(CITY) ASC,CITY ASC LIMIT 1;
+
+# Question 9
+SELECT ROUND(AVG(POPULATION),0 )FROM CITY;
+
+# Question 10
+SELECT Country.Continent, FLOOR(AVG(City.Population))
+FROM Country, City 
+WHERE Country.Code = City.CountryCode 
+GROUP BY Country.Continent ;
